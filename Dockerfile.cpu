@@ -5,9 +5,6 @@ MAINTAINER Jonathan DEKHTIAR [http://www.jonathandekhtiar.eu] <contact@jonathand
 # install debian packages
 ENV DEBIAN_FRONTEND noninteractive
 
-# Add repository to install openjdk-7
-RUN add-apt-repository ppa:openjdk-r/ppa 
-
 RUN apt-get update -qq \
  && apt-get install --no-install-recommends -y \
     # install essentials and build dependencies
@@ -68,7 +65,7 @@ RUN apt-get update -qq \
     # For Kaldi's dependencies
     libapr1 libaprutil1 libltdl-dev libltdl7 libserf-1-1 libsigsegv2 libsvn1 m4 \
     # For Java Bindings
-    openjdk-7-jdk \
+    openjdk-8-jdk \
     # For SWIG
     libpcre3-dev \
  && apt-get clean \
