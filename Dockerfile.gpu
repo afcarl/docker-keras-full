@@ -88,8 +88,8 @@ RUN apt-get update -qq \
         ipykernel \
 && python3 -m ipykernel.kernelspec
 
-RUN ln -s /usr/bin/pip3 /usr/bin/pip
-RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN ln -s /usr/bin/pip3 /usr/bin/pip \ 
+&& ln -s /usr/bin/python3 /usr/bin/python
 
 ############ TENSORFLOW INSTALLATION #############
 RUN pip3 install tensorflow-gpu
