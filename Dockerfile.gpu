@@ -1,8 +1,6 @@
-# docker-debian-cuda - Debian 9 with CUDA Toolkit
-
 FROM nvidia/cuda:8.0-cudnn6-devel-ubuntu16.04
 
-MAINTAINER gw0 [http://gw.tnode.com/] <gw.2017@ena.one>
+MAINTAINER Jonathan DEKHTIAR [http://www.jonathandekhtiar.eu] <contact@jonathandekhtiar.eu>
 
 # install debian packages
 ENV DEBIAN_FRONTEND noninteractive
