@@ -97,6 +97,8 @@ RUN ln -s /usr/bin/pip3 /usr/bin/pip \
 RUN pip3 install tensorflow-gpu
 # For CUDA profiling, TensorFlow requires CUPTI.
 ENV LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
+ENV LD_LIBRARY_PATH /usr/local/cuda/bin:$LD_LIBRARY_PATH
+ENV LD_LIBRARY_PATH /usr/local/cuda/lib64:$LD_LIBRARY_PATH
 
 ############ THEANO INSTALLATION #############
 RUN pip3 install Theano
