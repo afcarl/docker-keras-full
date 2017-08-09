@@ -80,8 +80,12 @@ RUN apt-get update -qq \
         numpy \
         pandas \
         scipy \
-        sklearn \
-&& python -m ipykernel.kernelspec
+        scikit-learn \
+        statsmodels \
+        # jupyter notebook and ipython (Python 3)
+        ipython \
+        ipykernel \
+&& python3 -m ipykernel.kernelspec
 
 ############ TENSORFLOW INSTALLATION #############
 RUN pip3 install tensorflow-gpu
@@ -101,17 +105,6 @@ RUN apt-get update -qq \
     
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
-
-# install additional python packages
-RUN pip3 --no-cache-dir install \
-    # jupyter notebook and ipython (Python 3)
-    ipython \
-    ipykernel \
-    # data analysis (Python 3)
-    pandas \
-    scikit-learn \
-    statsmodels \
- && python3 -m ipykernel.kernelspec
 
 # configure console
 RUN echo 'alias ll="ls --color=auto -lA"' >> /root/.bashrc \
