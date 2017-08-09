@@ -88,8 +88,13 @@ RUN apt-get update -qq \
         ipykernel \
 && python3 -m ipykernel.kernelspec
 
+RUN ln -s /usr/bin/pip3 /usr/bin/pip
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
 ############ TENSORFLOW INSTALLATION #############
 RUN pip3 install tensorflow-gpu
+# For CUDA profiling, TensorFlow requires CUPTI.
+ENV LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 
 ############ THEANO INSTALLATION #############
 RUN pip3 install Theano
