@@ -95,7 +95,7 @@ RUN pip3 install tensorflow-gpu
 RUN pip3 install Theano
 
 ############ NLTK INSTALLATION #############
-RUN pip3 install https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp36-cp36m-linux_x86_64.whl
+RUN pip3 install https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 
 ############ KERAS INSTALLATION #############
 RUN pip3 install keras
