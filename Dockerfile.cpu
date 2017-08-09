@@ -88,6 +88,9 @@ RUN apt-get update -qq \
         ipykernel \
 && python3 -m ipykernel.kernelspec
 
+RUN ln -s /usr/bin/pip3 /usr/bin/pip \ 
+&& ln -s /usr/bin/python3 /usr/bin/python
+
 ############ TENSORFLOW INSTALLATION #############
 RUN pip3 install tensorflow
 
@@ -95,7 +98,7 @@ RUN pip3 install tensorflow
 RUN pip3 install Theano
 
 ############ NLTK INSTALLATION #############
-RUN pip3 install https://cntk.ai/PythonWheel/CPU-Only/cntk-2.1-cp36-cp36m-linux_x86_64.whl
+RUN pip3 install https://cntk.ai/PythonWheel/CPU-Only/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 
 ############ KERAS INSTALLATION #############
 RUN pip3 install keras
