@@ -103,8 +103,8 @@ RUN pip3 install Theano
 
 ############ NLTK INSTALLATION #############
 RUN pip3 install https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
-ENV PATH /usr/local/mpi/bin:$PATH
-ENV LD_LIBRARY_PATH /usr/local/mpi/lib:$LD_LIBRARY_PATH
+ENV PATH /usr/bin:$PATH
+ENV LD_LIBRARY_PATH /usr/lib:$LD_LIBRARY_PATH
 
 ############ KERAS INSTALLATION #############
 RUN pip3 install keras
