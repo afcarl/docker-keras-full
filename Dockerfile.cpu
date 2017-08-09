@@ -71,6 +71,7 @@ RUN apt-get update -qq \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
  
+ RUN pip3 install --upgrade pip
  RUN pip3 --no-cache-dir install \
         Pillow \
         h5py \
@@ -80,9 +81,12 @@ RUN apt-get update -qq \
         numpy \
         pandas \
         scipy \
-        sklearn \
-        && \
-    python -m ipykernel.kernelspec
+        scikit-learn \
+        statsmodels \
+        # jupyter notebook and ipython (Python 3)
+        ipython \
+        ipykernel \
+&& python3 -m ipykernel.kernelspec
 
 ############ TENSORFLOW INSTALLATION #############
 RUN pip3 install tensorflow
@@ -95,24 +99,6 @@ RUN pip3 install https://cntk.ai/PythonWheel/CPU-Only/cntk-2.1-cp36-cp36m-linux_
 
 ############ KERAS INSTALLATION #############
 RUN pip3 install keras
-
-# install additional debian packages
-RUN apt-get update -qq \
- && apt-get install --no-install-recommends -y \
-    
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
-
-# install additional python packages
-RUN pip3 --no-cache-dir install \
-    # jupyter notebook and ipython (Python 3)
-    ipython \
-    ipykernel \
-    # data analysis (Python 3)
-    pandas \
-    scikit-learn \
-    statsmodels \
- && python3 -m ipykernel.kernelspec
 
 # configure console
 RUN echo 'alias ll="ls --color=auto -lA"' >> /root/.bashrc \
