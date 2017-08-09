@@ -4,6 +4,10 @@ MAINTAINER Jonathan DEKHTIAR [http://www.jonathandekhtiar.eu] <contact@jonathand
 
 # install debian packages
 ENV DEBIAN_FRONTEND noninteractive
+
+# Add repository to install openjdk-7
+RUN add-apt-repository ppa:openjdk-r/ppa 
+
 RUN apt-get update -qq \
  && apt-get install --no-install-recommends -y \
     # install essentials and build dependencies
