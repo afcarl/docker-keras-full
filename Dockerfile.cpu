@@ -1,5 +1,3 @@
-# docker-debian-cuda - Debian 9 with CUDA Toolkit
-
 FROM ubuntu:16.04
 
 MAINTAINER Jonathan DEKHTIAR [http://www.jonathandekhtiar.eu] <contact@jonathandekhtiar.eu>
